@@ -1,16 +1,18 @@
 import styled from "@emotion/styled";
 import React, { HTMLAttributes } from "react";
 
-export const MenuView = ({
-    children,
-    ...props
+export const Title = ({
+	children,
+	...props
 }: HTMLAttributes<HTMLDivElement>) => {
-    return <TitleText {...props}>{children}</TitleText>;
-}
+	return <TitleText {...props}>{children}</TitleText>;
+};
 
 const TitleText = styled.div`
-    margin-bottom: 24px;
-    color: #eeeeee;
-    font-size: 24px;
-    text-align: center;
+	margin-bottom: 24px;
+	color: #eeeeee;
+	font-size: 24px;
+	text-align: center;
 `;
+
+export default Title;
