@@ -18,7 +18,7 @@ export const Space = (props: CanvasHTMLAttributes<any>) => {
 	const { planet, showPlanet } = useContext(SpaceContext);
 
 	// useEffect(() => {
-	// 	showPlanet("earth");
+	// 	showPlanet(planet);
 	// }, [showPlanet]);
 
 	return (

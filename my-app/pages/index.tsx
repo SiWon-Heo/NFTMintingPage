@@ -1,7 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 import type { NextPage } from "next";
 import styled from "@emotion/styled";
 import { MenuView } from "@/components/MenuView";
@@ -46,4 +42,5 @@ const MenuLink = styled(Link)`
 	display: flex;
 	justify-content: center;
 `;
+
 export default Home;

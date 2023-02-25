@@ -17,4 +17,4 @@ const View = styled.div`
 	width: 500px;
 `;
 
-export default MenuView;
+// export default MenuView;

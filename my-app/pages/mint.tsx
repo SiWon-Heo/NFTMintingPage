@@ -13,10 +13,10 @@ import { PlanetList } from "@/components/Planet";
 import { SpaceContext } from "@/contexts/useSpace";
 import { useRouter } from "next/router";
 
-const Home: NextPage = () => {
+const Mint: NextPage = () => {
 	const router = useRouter();
-	const [planetIndex, setPlanetIndex] = useState(-1);
 	const { showPlanet, clearPlanet } = useContext(SpaceContext);
+	const [planetIndex, setPlanetIndex] = useState(-1);
 
 	const showRandomPlanet = () => {
 		setPlanetIndex(Math.floor(Math.random() * PlanetList.length));
@@ -30,8 +30,8 @@ const Home: NextPage = () => {
 	}, [planetIndex, showPlanet, clearPlanet]);
 
 	useEffect(() => {
-		const interval = setInterval(() => showRandomPlanet(), 1000);
 		showRandomPlanet();
+		const interval = setInterval(() => showRandomPlanet(), 1000);
 
 		return () => clearInterval(interval);
 	}, []);
@@ -95,4 +95,4 @@ const ButtonView = styled.div`
 	flex-direction: column;
 	margin-top: 24px;
 `;
-export default Home;
+export default Mint;

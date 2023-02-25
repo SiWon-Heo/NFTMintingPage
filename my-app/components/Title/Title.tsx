@@ -15,4 +15,4 @@ const TitleText = styled.div`
 	text-align: center;
 `;
 
-export default Title;
+// export default Title;

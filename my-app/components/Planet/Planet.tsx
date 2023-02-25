@@ -2,6 +2,8 @@ import { useGLTF } from "@react-three/drei";
 import { PrimitiveProps, useFrame } from "@react-three/fiber";
 import React from "react";
 import { useMemo, useRef } from "react";
+import styled from "@emotion/styled";
+
 export type PlanetName =
 	| "sun"
 	| "mercury"
@@ -60,6 +62,7 @@ export const Planet = ({ name, ...primitiveProps }: PlanetProps) => {
 		"https://space.coinyou.io/3d-objects/uranus.glb"
 	);
 
+	// error cause: 'name' not included in memo array
 	const scene = useMemo(
 		() =>
 			name
@@ -75,10 +78,21 @@ export const Planet = ({ name, ...primitiveProps }: PlanetProps) => {
 						uranus,
 				  }[name]
 				: null,
-		[sun, mercury, venus, earth, mars, jupyter, saturn, neptune, uranus]
+		[
+			sun,
+			mercury,
+			venus,
+			earth,
+			mars,
+			jupyter,
+			saturn,
+			neptune,
+			uranus,
+			name,
+		]
 	);
 
-	const copiedScene = useMemo(() => (scene ? scene.clone() : null), []);
+	const copiedScene = useMemo(() => (scene ? scene.clone() : null), [scene]);
 
 	useFrame(() => {
 		if (planetRef.current) {
@@ -96,3 +110,12 @@ export const Planet = ({ name, ...primitiveProps }: PlanetProps) => {
 		</group>
 	) : null;
 };
+
+const View = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+	padding: 24px;
+	border-radius: 12px;
+	background: #88888820;
+`;
