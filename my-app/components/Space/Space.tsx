@@ -9,6 +9,10 @@ const Stars = dynamic(
 	{ ssr: false }
 );
 
+const Planet = dynamic(() => import("../Planet").then((mod) => mod.Planet), {
+	ssr: false,
+});
+
 export const Space = (props: CanvasHTMLAttributes<any>) => {
 	return (
 		<Canvas
@@ -16,6 +20,14 @@ export const Space = (props: CanvasHTMLAttributes<any>) => {
 			{...props}
 		>
 			<Stars />
+			<Planet name="earth" position={[0, 1.5, 0]} />
+			<ambientLight intensity={0.3} />
+			<spotLight
+				position={[100, 100, 80]}
+				distance={200}
+				intensity={20}
+				angle={1}
+			/>
 		</Canvas>
 	);
 };
