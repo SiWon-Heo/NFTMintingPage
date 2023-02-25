@@ -3,19 +3,22 @@ import type { AppProps } from "next/app";
 import { Space } from "@/components/Space/Space";
 import styled from "@emotion/styled";
 import { SpaceContextProvider } from "@/contexts/useSpace";
+import { Web3ContextProvider } from "@/contexts";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<SpaceContextProvider>
-			<AppView>
-				<SpaceWrapper>
-					<Space />
-				</SpaceWrapper>
-				<ComponentWrapper>
-					<Component {...pageProps} />
-				</ComponentWrapper>
-			</AppView>
-		</SpaceContextProvider>
+		<Web3ContextProvider>
+			<SpaceContextProvider>
+				<AppView>
+					<SpaceWrapper>
+						<Space />
+					</SpaceWrapper>
+					<ComponentWrapper>
+						<Component {...pageProps} />
+					</ComponentWrapper>
+				</AppView>
+			</SpaceContextProvider>
+		</Web3ContextProvider>
 	);
 }
 
