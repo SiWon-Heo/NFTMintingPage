@@ -2,17 +2,20 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Space } from "@/components/Space/Space";
 import styled from "@emotion/styled";
+import { SpaceContextProvider } from "@/contexts/useSpace";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<AppView>
-			<SpaceWrapper>
-				<Space />
-			</SpaceWrapper>
-			<ComponentWrapper>
-				<Component {...pageProps} />
-			</ComponentWrapper>
-		</AppView>
+		<SpaceContextProvider>
+			<AppView>
+				<SpaceWrapper>
+					<Space />
+				</SpaceWrapper>
+				<ComponentWrapper>
+					<Component {...pageProps} />
+				</ComponentWrapper>
+			</AppView>
+		</SpaceContextProvider>
 	);
 }
 
